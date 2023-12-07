@@ -2,6 +2,7 @@
   <form
     class="d-flex flex-column align-items-center"
     (submit)="onSubmit($event)"
+    [formGroup]="myform"
   >
     <img
       class="mb-4"
@@ -17,6 +18,7 @@
         class="form-control"
         placeholder="name@example.com"
         autocomplete="off"
+        formControlName="email"
       />
       <label for="floatingInput">Correo Electronico</label>
     </div>
@@ -26,6 +28,7 @@
         class="form-control"
         placeholder="name@example.com"
         autocomplete="off"
+        formControlName="username"
       />
       <label for="floatingInput">Usuario</label>
     </div>
@@ -35,6 +38,7 @@
         class="form-control"
         placeholder="Password"
         autocomplete="off"
+        formControlName="contrasena"
       />
       <label for="floatingPassword">Contraseña</label>
     </div>
@@ -53,4 +57,7 @@
     </button>
     <p class="mt-5 mb-3 text-muted">&copy; 2023-2023</p>
   </form>
+  <div *ngIf="acesso" class="alert alert-danger text-center" role="alert">
+    Usario ya existe
+  </div>
 </main>

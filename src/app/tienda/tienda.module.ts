@@ -13,6 +13,7 @@ import { CardDetalleComponent } from './components/card-detalle/card-detalle.com
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,11 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
     CarritoComponent,
     LayoutPageComponent,
   ],
-  imports: [CommonModule, TiendaRoutingModule, PrimeNgModule],
+  imports: [
+    CommonModule,
+    TiendaRoutingModule,
+    PrimeNgModule,
+    ReactiveFormsModule,
+  ],
 })
 export class TiendaModule {}

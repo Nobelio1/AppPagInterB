@@ -1,30 +1,25 @@
-<div class="row">
-  <div class="col-sm-6 my-2">
-    <div class="card">
-      <div class="card-body">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img
-              src="../../../../assets/prueba.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Papu Producto</h5>
-              <h6>Precio: $100</h6>
-              <p class="card-text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-                magnam dicta vero officia, nemo adipisci ad facere accusantium
-                iste vitae sequi fugiat atque laboriosam culpa.
-              </p>
-              <a class="btn btn-primary">Añadir al carrito</a>
-              <a class="btn btn-info mx-2" routerLink="/tienda/detalle"
-                >Ver producto</a
-              >
-            </div>
-          </div>
+<div class="card">
+  <div class="card-body">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ lista.urlImagen }}" class="card-img-top" />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ lista.nombreProducto }}</h5>
+          <h6>Precio: ${{ lista.precio }}</h6>
+          <p class="card-text">
+            {{ lista.descripcionProducto }}
+          </p>
+          <a class="btn btn-primary" (click)="guardarCarrito(lista)"
+            >Añadir al carrito</a
+          >
+          <button
+            class="btn btn-info mx-2"
+            [routerLink]="['/tienda/detalle', lista.idProducto]"
+          >
+            Ver producto
+          </button>
         </div>
       </div>
     </div>

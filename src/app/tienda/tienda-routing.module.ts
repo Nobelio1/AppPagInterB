@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       { path: 'principal', component: PrincipalComponent },
       { path: 'catalogo', component: CatalogoComponent },
-      { path: 'detalle', component: ProductoDetalleComponent },
+      { path: 'detalle/:id', component: ProductoDetalleComponent },
       { path: 'carrito', component: CarritoComponent },
       { path: '**', redirectTo: 'principal' },
     ],

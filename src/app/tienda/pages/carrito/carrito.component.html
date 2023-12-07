@@ -10,7 +10,7 @@
             <div>
               <h6 class="my-0">Precio:</h6>
             </div>
-            <span class="text-muted">$12</span>
+            <span class="text-muted">${{ precioTotal }}</span>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
@@ -22,12 +22,16 @@
             <div>
               <h6 class="my-0">Precio total</h6>
             </div>
-            <span class="text-muted">$12</span>
+            <span class="text-muted">${{ precioTotal }}</span>
           </li>
         </ul>
         <form class="card p-2">
           <div class="input-group">
-            <button type="submit" class="btn btn-primary w-100">
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="comprar()"
+            >
               Finalizar Compra
             </button>
           </div>
@@ -37,24 +41,22 @@
       <!-- FOTO DEL PRODUCTO -->
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">CARRITO</h4>
-        <div class="card">
-          <div class="card-body">
-            <div class="row g-0">
-              <div class="col-md-4" style="width: 10rem">
-                <img
-                  src="../../../../assets/prueba.jpg"
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body d-flex justify-content-between">
-                  <div>
-                    <h5 class="card-title">Papu Producto</h5>
-                    <h6>Precio: $100</h6>
-                  </div>
-                  <div>
-                    <a class="btn btn-danger">Eliminar</a>
+        <div *ngFor="let item of listaProductos">
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="row g-0">
+                <div class="col-md-4" style="width: 10rem">
+                  <img src="{{ item.urlImagen }}" class="card-img-top" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body d-flex justify-content-between">
+                    <div>
+                      <h5 class="card-title">{{ item.nombreProducto }}</h5>
+                      <h6>Precio: ${{ item.precio }}</h6>
+                    </div>
+                    <div>
+                      <a class="btn btn-danger">Eliminar</a>
+                    </div>
                   </div>
                 </div>
               </div>

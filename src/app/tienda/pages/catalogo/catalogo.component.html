@@ -61,11 +61,18 @@
   </div>
 </nav>
 
-<!-- todo: BANNER + CATALOGO -->
-
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-5">
   <div class="align-items-center pt-3">
     <h2>Nuestros Productos</h2>
-    <app-card-product></app-card-product>
+    <div class="row row-cols-2">
+      <div *ngFor="let producto of listaProductos">
+        <div class="col my-2">
+          <app-card-product
+            [lista]="producto"
+            (producto)="getCarito($event)"
+          ></app-card-product>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
