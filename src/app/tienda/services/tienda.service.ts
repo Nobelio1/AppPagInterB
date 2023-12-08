@@ -16,8 +16,6 @@ export class TiendaService {
   private urlService = environment.API_MASTER;
   private user?: UsuarioIn;
 
-  //todo: Realizar la validacion de session de usuario
-
   constructor(private http: HttpClient) {}
 
   loginUser(request: UsuarioIn): Observable<UsuarioOut> {
@@ -34,8 +32,10 @@ export class TiendaService {
     );
   }
 
-  listaProductos(): Observable<ListaProductos[]> {
-    return this.http.get<ListaProductos[]>(`${this.urlService}/producto`);
+  listaProductos(categoria?: string): Observable<ListaProductos[]> {
+    return this.http.get<ListaProductos[]>(
+      `${this.urlService}/producto/categoria/${categoria}`
+    );
   }
 
   listaDetalleProducto(id: string): Observable<ListaProductosDetalle> {

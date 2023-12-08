@@ -22,6 +22,7 @@ export interface ListaProductos {
   idProducto: string;
   nombreProducto: string;
   descripcionProducto: string;
+  descripcionLarga: string;
   categoria: string;
   urlImagen: string;
   precio: number;
@@ -30,7 +31,8 @@ export interface ListaProductos {
 export interface ListaProductosDetalle {
   idProducto: string;
   nombreProducto: string;
-  descripcion: string;
+  descripcionProducto: string;
+  descripcionLarga: string;
   categoria: string;
   urlImagen: string;
   precio: number;

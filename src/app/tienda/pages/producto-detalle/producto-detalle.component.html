@@ -21,7 +21,9 @@
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Descripcion</h6>
-              <small class="text-muted">{{ listaProductos.descripcion }}</small>
+              <small class="text-muted">{{
+                listaProductos.descripcionLarga
+              }}</small>
             </div>
           </li>
         </ul>
@@ -31,6 +33,7 @@
               type="submit"
               class="btn btn-primary w-100"
               routerLink="/tienda/carrito"
+              (click)="getCarito(listaProductos)"
             >
               Comprar
             </button>
@@ -41,16 +44,42 @@
       <!-- FOTO DEL PRODUCTO -->
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">{{ listaProductos.nombreProducto }}</h4>
-        <div class="card p-auto mb-3" style="width: 45rem">
-          <img
-            src="{{ listaProductos.urlImagen }}"
-            class="card-img"
-            alt="..."
-          />
-          <div class="card-body">
-            <p class="card-text">
-              {{ listaProductos.descripcion }}
-            </p>
+        <div class="row">
+          <div class="col-12">
+            <div class="card p-auto mb-3 responsive">
+              <img
+                src="{{ listaProductos.urlImagen }}"
+                class="card-img"
+                style="max-width: 100%; height: 30rem"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  {{ listaProductos.descripcionProducto }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 mb-2">
+            <h4>Productos Relacionados</h4>
+          </div>
+          <div
+            class="col-4 mb-5"
+            *ngFor="let item of listaProductosRelacionados"
+          >
+            <div>
+              <div class="card" style="width: 17rem">
+                <img src="{{ item.urlImagen }}" class="card-img-top" />
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.nombreProducto }}</h5>
+                  <p class="card-text">
+                    {{ item.descripcionProducto }}
+                  </p>
+                  <a class="btn btn-primary" (click)="producto(item.idProducto)"
+                    >Ver más</a
+                  >
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,27 @@
+.responsive{
+  width: 55rem
+}
+
+@media screen and (max-width: 1440px) {
+  .responsive {
+    width: 47rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .responsive {
+    width: 40rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .responsive {
+    width: 25rem;
+  }
+}
+@media screen and (max-width: 740px) {
+  .responsive {
+    width: 30rem;
+  }
+}
+
