@@ -62,18 +62,17 @@
           <div class="col-12 mb-2">
             <h4>Productos Relacionados</h4>
           </div>
+
           <div
-            class="col-4 mb-5"
+            class="col-lg-4 col-md-6 col-sm-6 mb-5"
             *ngFor="let item of listaProductosRelacionados"
           >
-            <div>
-              <div class="card" style="width: 17rem">
+            <div class="h-100">
+              <div class="card mb-3 h-100">
                 <img src="{{ item.urlImagen }}" class="card-img-top" />
                 <div class="card-body">
                   <h5 class="card-title">{{ item.nombreProducto }}</h5>
-                  <p class="card-text">
-                    {{ item.descripcionProducto }}
-                  </p>
+                  <p class="card-text">{{ item.descripcionProducto }}</p>
                   <a class="btn btn-primary" (click)="producto(item.idProducto)"
                     >Ver más</a
                   >

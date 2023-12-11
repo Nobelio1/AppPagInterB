@@ -1,11 +1,11 @@
 <div class="card">
   <div class="card-body">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-lg-12 col-xl-4">
         <img src="{{ lista.urlImagen }}" class="card-img-top" />
       </div>
-      <div class="col-md-8">
-        <div class="card-body">
+      <div class="col-lg-12 col-xl-8">
+        <div class="card-body justify-content-start">
           <h5 class="card-title">{{ lista.nombreProducto }}</h5>
           <h6>Precio: ${{ lista.precio }}</h6>
           <p class="card-text">
@@ -15,7 +15,7 @@
             >Añadir al carrito</a
           >
           <button
-            class="btn btn-info mx-2"
+            class="btn btn-info mx-2 responsive"
             [routerLink]="['/tienda/detalle', lista.idProducto]"
           >
             Ver producto
