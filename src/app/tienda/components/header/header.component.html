@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="/tienda/principal"
         >TIENDA BCP CONSULTING</a
@@ -18,12 +18,13 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a
-              class="nav-link active"
+            <button
+              class="btn boton"
               aria-current="page"
               routerLink="/tienda/catalogo"
-              >Catalogo</a
             >
+              Catalogo
+            </button>
           </li>
         </ul>
         <form class="d-flex">
@@ -33,14 +34,14 @@
             placeholder="Search"
             aria-label="Search"
           />
-          <button
-            class="btn btn-outline-success"
-            type="submit"
-            routerLink="/tienda/carrito"
-          >
-            carrito
-          </button>
         </form>
+        <span class="mx-2">Bienvenido: {{ user?.username }}</span>
+        <button class="btn boton" type="submit" routerLink="/tienda/carrito">
+          carrito
+        </button>
+        <button class="btn logout" type="submit" (click)="onLogout()">
+          logout
+        </button>
       </div>
     </div>
   </nav>

@@ -6,6 +6,7 @@ import {
   UsuarioOut,
 } from '../../../tienda/interfaces/tienda.interface';
 import { TiendaService } from '../../../tienda/services/tienda.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -24,16 +25,15 @@ export class LoginPageComponent {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private tiendaService: TiendaService
+    private tiendaService: TiendaService,
+    private authService: AuthService
   ) {}
 
   onSubmit(event: Event) {
     this.user = this.myFomr.getRawValue();
 
-    this.tiendaService.loginUser(this.user).subscribe((data: UsuarioOut) => {
+    this.authService.loginUser(this.user).subscribe((data: UsuarioOut) => {
       if (data.idUsuario === 0) {
-        console.log('No existe');
-        //todo: crear pop-up para cuando no se acceda
         this.acesso = true;
       } else {
         event.preventDefault();

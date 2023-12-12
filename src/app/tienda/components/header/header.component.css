@@ -1,1 +1,38 @@
+.boton{
+  color: white;
+  background-color: #0066ff;
+  border-radius: 10px;
+  border-color: #0066ff;
+}
 
+.boton:hover{
+  background-color: transparent;
+  border-radius: 10px;
+  color: #0066ff;
+}
+
+.bg{
+  background-color: white;
+  box-shadow: 1px 0.5px gray;
+}
+
+a{
+  color: black;
+}
+a:hover{
+  color: rgba(0, 0, 0, 0.566);
+}
+
+.logout{
+  color: white;
+  background-color: crimson;
+  border-radius: 10px;
+  border-color: crimson;
+  margin-left: 0.3rem;
+}
+
+.logout:hover{
+  background-color: transparent;
+  border-radius: 10px;
+  color: crimson;
+}

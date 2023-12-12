@@ -14,7 +14,6 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class TiendaService {
   private urlService = environment.API_MASTER;
-  private user?: UsuarioIn;
 
   constructor(private http: HttpClient) {}
 
