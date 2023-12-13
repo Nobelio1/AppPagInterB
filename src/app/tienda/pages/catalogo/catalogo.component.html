@@ -1,0 +1,77 @@
+<nav
+  id="sidebarMenu"
+  class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+>
+  <div class="position-sticky pt-3">
+    <h6
+      class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+    >
+      <span>Categorías</span>
+    </h6>
+    <form [formGroup]="myForm">
+      <ul class="nav flex-column mb-2 p-4">
+        <li class="nav-item">
+          <div class="form-check nav-link">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="Hogar"
+              id="flexCheckDefault"
+              formControlName="checkboxHogar"
+              (change)="addArrayCategoria()"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Hogar
+            </label>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="form-check nav-link">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="Electronica"
+              id="flexCheckDefault"
+              formControlName="checkboxElectro"
+              (change)="addArrayCategoria()"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Electronica
+            </label>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="form-check nav-link">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="Salud"
+              id="flexCheckDefault"
+              formControlName="checkboxSalud"
+              (change)="addArrayCategoria()"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Salud
+            </label>
+          </div>
+        </li>
+      </ul>
+    </form>
+  </div>
+</nav>
+
+<main class="col-md-9 ms-md-auto col-lg-10 px-md-4 mt-5">
+  <div class="align-items-center pt-3">
+    <h2>Nuestros Productos</h2>
+    <div class="row row-cols-lg-2 row-cols-sm-1 col-md-12">
+      <div *ngFor="let producto of listaProductos">
+        <div class="col my-2">
+          <app-card-product
+            [producto]="producto"
+            (productoId)="getCarito($event)"
+          ></app-card-product>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

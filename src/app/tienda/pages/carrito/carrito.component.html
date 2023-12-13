@@ -1,0 +1,71 @@
+<div class="container">
+  <main>
+    <div class="row g-5 mt-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Detalle de precios</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Precio:</h6>
+            </div>
+            <span class="text-muted">${{ precioTotal }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Descuentos</h6>
+            </div>
+            <span class="text-muted">$0</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Precio total</h6>
+            </div>
+            <span class="text-muted">${{ precioTotal }}</span>
+          </li>
+        </ul>
+        <form class="card p-2">
+          <div class="input-group">
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="comprar()"
+            >
+              Finalizar Compra
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- FOTO DEL PRODUCTO -->
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">CARRITO</h4>
+        <div *ngFor="let item of listaProductosCarrito">
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="row g-0">
+                <div class="col-md-4" style="width: 10rem">
+                  <img src="{{ item.urlImagen }}" class="card-img-top" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body d-flex justify-content-between">
+                    <div>
+                      <h5 class="card-title">{{ item.nombreProducto }}</h5>
+                      <h6>Precio: ${{ item.precio }}</h6>
+                      <h6>{{ item.descripcionProducto }}</h6>
+                    </div>
+                    <div>
+                      <h6>Cantidad: {{ item.cantidad }}</h6>
+                      <a class="btn btn-danger">Eliminar</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
