@@ -15,3 +15,27 @@
 @media screen and (max-width: 740px) {
 
 }
+
+.cursor{
+  cursor: pointer;
+  color: #05BE50;
+}
+
+.boton-verde{
+background-color: #05BE50;
+color: white;
+}
+
+.size-boton{
+  width: 50%;
+  text-align: center;
+}
+
+.container-boton{
+  width: 100%;
+  text-align: center;
+}
+
+.color-add{
+  background-color: #0033A1;
+}

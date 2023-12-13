@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ListaProductos } from '../../interfaces/tienda.interface';
+import { ProductoAdd } from '../../interfaces/tienda.interface';
 
 @Component({
   selector: 'app-card-product',
@@ -8,18 +8,17 @@ import { ListaProductos } from '../../interfaces/tienda.interface';
 })
 export class CardProductComponent implements OnInit {
   @Input()
-  public lista!: ListaProductos;
-  public listaCarrito: ListaProductos[] = [];
+  public producto!: ProductoAdd;
 
   @Output()
-  public producto: EventEmitter<ListaProductos> = new EventEmitter();
+  public productoId: EventEmitter<ProductoAdd> = new EventEmitter();
 
   ngOnInit(): void {
-    if (!this.lista) throw Error('lista property is required');
+    if (!this.producto) throw Error('lista property is required');
   }
 
-  guardarCarrito(lista: ListaProductos) {
-    this.producto.emit(lista);
+  guardarCarrito(producto: ProductoAdd) {
+    this.productoId.emit(producto);
     // localStorage.setItem('carrito', JSON.stringify(lista));
   }
 }

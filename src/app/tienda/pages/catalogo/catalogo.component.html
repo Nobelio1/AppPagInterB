@@ -17,8 +17,8 @@
               type="checkbox"
               value="Hogar"
               id="flexCheckDefault"
-              formControlName="categoria"
-              (change)="seleccionarCategoria(1)"
+              formControlName="checkboxHogar"
+              (change)="addArrayCategoria()"
             />
             <label class="form-check-label" for="flexCheckDefault">
               Hogar
@@ -32,8 +32,8 @@
               type="checkbox"
               value="Electronica"
               id="flexCheckDefault"
-              formControlName="categoria1"
-              (change)="seleccionarCategoria(2)"
+              formControlName="checkboxElectro"
+              (change)="addArrayCategoria()"
             />
             <label class="form-check-label" for="flexCheckDefault">
               Electronica
@@ -47,8 +47,8 @@
               type="checkbox"
               value="Salud"
               id="flexCheckDefault"
-              formControlName="categoria2"
-              (change)="seleccionarCategoria(3)"
+              formControlName="checkboxSalud"
+              (change)="addArrayCategoria()"
             />
             <label class="form-check-label" for="flexCheckDefault">
               Salud
@@ -67,8 +67,8 @@
       <div *ngFor="let producto of listaProductos">
         <div class="col my-2">
           <app-card-product
-            [lista]="producto"
-            (producto)="getCarito($event)"
+            [producto]="producto"
+            (productoId)="getCarito($event)"
           ></app-card-product>
         </div>
       </div>

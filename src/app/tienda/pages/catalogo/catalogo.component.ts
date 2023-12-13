@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListaProductos } from '../../interfaces/tienda.interface';
+import { ProductoAdd } from '../../interfaces/tienda.interface';
 import { TiendaService } from '../../services/tienda.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -9,13 +9,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrl: './catalogo.component.css',
 })
 export class CatalogoComponent implements OnInit {
-  public listaProductos: ListaProductos[] = [];
-  public listaCarrito: ListaProductos[] = [];
+  public listaCategoria: string[] = [];
+
+  public listaProductos: ProductoAdd[] = [];
+  public listaCarrito: ProductoAdd[] = [];
 
   public myForm: FormGroup = this.fb.group({
-    categoria: [''],
-    categoria1: [''],
-    categoria2: [''],
+    checkboxHogar: [''],
+    checkboxElectro: [''],
+    checkboxSalud: [''],
   });
 
   constructor(private tiendaService: TiendaService, private fb: FormBuilder) {}
@@ -29,7 +31,7 @@ export class CatalogoComponent implements OnInit {
     });
   }
 
-  getCarito(producto: ListaProductos) {
+  getCarito(producto: ProductoAdd) {
     const carritoExistente = localStorage.getItem('carrito');
 
     if (carritoExistente) {
@@ -42,35 +44,23 @@ export class CatalogoComponent implements OnInit {
     }
   }
 
-  seleccionarCategoria(id: number) {
-    if (this.myForm.controls['categoria'].value) {
-      // switch (id) {
-      //   case 1:
-      //     this.getProducto('Hogar');
-      //     break;
-      //   case 2:
-      //     this.getProducto('Electronica');
-      //     break;
-      //   case 3:
-      //     this.getProducto('Salud');
-      //     break;
-      // }
-      this.getProducto('Hogar');
-    } else if (this.myForm.controls['categoria1'].value) {
-      this.getProducto('Electronica');
-    } else if (this.myForm.controls['categoria2'].value) {
-      this.getProducto('Salud');
-    } else if (
-      this.myForm.controls['categoria1'].value &&
-      this.myForm.controls['categoria2'].value
-    ) {
-      this.getProducto('Hogar,Electronica');
-    } else if (
-      this.myForm.controls['categoria1'].value &&
-      this.myForm.controls['categoria3'].value
-    ) {
-      this.getProducto('Hogar,Salud');
-    } else if (this.myForm.controls['categoria1'].value) {
+  addArrayCategoria() {
+    this.listaCategoria = [];
+    if (this.myForm.controls['checkboxHogar'].value) {
+      this.listaCategoria.push('Hogar');
     }
+    if (this.myForm.controls['checkboxElectro'].value) {
+      this.listaCategoria.push('Electronica');
+    }
+    if (this.myForm.controls['checkboxSalud'].value) {
+      this.listaCategoria.push('Salud');
+    }
+    if (this.listaCategoria.length == 0) {
+      this.listaCategoria.push('Todo');
+    }
+
+    console.log(this.listaCategoria.join());
+
+    this.getProducto(this.listaCategoria.join());
   }
 }

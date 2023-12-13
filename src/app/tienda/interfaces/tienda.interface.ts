@@ -18,7 +18,7 @@ export interface NuevoUsuarioOut {
   mensaje: string;
 }
 
-export interface ListaProductos {
+export interface ProductoAdd {
   idProducto: string;
   nombreProducto: string;
   descripcionProducto: string;
@@ -36,4 +36,15 @@ export interface ListaProductosDetalle {
   categoria: string;
   urlImagen: string;
   precio: number;
+}
+
+export interface ProductoCarrito {
+  idProducto: string;
+  nombreProducto: string;
+  descripcionProducto: string;
+  descripcionLarga: string;
+  categoria: string;
+  urlImagen: string;
+  precio: number;
+  cantidad: number;
 }

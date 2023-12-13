@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TiendaService } from '../../services/tienda.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  ListaProductos,
-  ListaProductosDetalle,
-} from '../../interfaces/tienda.interface';
+import { ListaProductosDetalle } from '../../interfaces/tienda.interface';
 import { switchMap } from 'rxjs';
 import { Location } from '@angular/common';
 

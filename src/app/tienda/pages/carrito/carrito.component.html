@@ -41,7 +41,7 @@
       <!-- FOTO DEL PRODUCTO -->
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">CARRITO</h4>
-        <div *ngFor="let item of listaProductos">
+        <div *ngFor="let item of listaProductosCarrito">
           <div class="card mb-2">
             <div class="card-body">
               <div class="row g-0">
@@ -56,6 +56,7 @@
                       <h6>{{ item.descripcionProducto }}</h6>
                     </div>
                     <div>
+                      <h6>Cantidad: {{ item.cantidad }}</h6>
                       <a class="btn btn-danger">Eliminar</a>
                     </div>
                   </div>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environment/environment';
 import {
-  ListaProductos,
+  ProductoAdd,
   ListaProductosDetalle,
   NuevoUsuarioIn,
   NuevoUsuarioOut,
@@ -17,13 +17,6 @@ export class TiendaService {
 
   constructor(private http: HttpClient) {}
 
-  loginUser(request: UsuarioIn): Observable<UsuarioOut> {
-    return this.http.post<UsuarioOut>(
-      `${this.urlService}/usuario/login`,
-      request
-    );
-  }
-
   registerUsser(request: NuevoUsuarioIn): Observable<NuevoUsuarioOut> {
     return this.http.post<NuevoUsuarioOut>(
       `${this.urlService}/usuario`,
@@ -31,8 +24,9 @@ export class TiendaService {
     );
   }
 
-  listaProductos(categoria?: string): Observable<ListaProductos[]> {
-    return this.http.get<ListaProductos[]>(
+  listaProductos(categoria?: string): Observable<ProductoAdd[]> {
+    console.log('listaProductos-categoria: ' + categoria);
+    return this.http.get<ProductoAdd[]>(
       `${this.urlService}/producto/categoria/${categoria}`
     );
   }
